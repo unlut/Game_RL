@@ -742,8 +742,6 @@ class Pong():
     
     def play_mode_cvc(self):
         self.ball.GiveRandomDirection()
-        #gameDisplay.get_view()
-        
         while True:
             #  read player inputs
             (input1, input2) = self.ReadInputs(self.COMPUTER_1_AI, self.COMPUTER_2_AI)
@@ -768,7 +766,7 @@ class Pong():
         
         return self.GetGameScreen()
     
-    def action_ismagil(self, action, whichPlayer):
+    def action_ismagil(self, action, whichPlayer, dispMode):
         
         #  Read ismagil's input
         ismagilInput = PlayerInput(0, 0, 0)
@@ -801,8 +799,10 @@ class Pong():
         
         
         #  draw to buffer
-        self.DrawInternal()
-        #self.Draw()
+        if (dispMode == 0):
+            self.DrawInternal()
+        elif (dispMode == 1):
+            self.Draw()
         
         
         return result
@@ -879,6 +879,7 @@ class Simulator():
         self.gameObject = None
         self.opponentAI = None
         self.whichPlayer = 0
+        self.displayMode = 0
         
         #  defice which player Ismagil going to play as
         toss = random.randint(0, 1)
@@ -900,7 +901,7 @@ class Simulator():
 
 
     def Action(self, act):
-        result = self.gameObject.action_ismagil(act, self.whichPlayer)
+        result = self.gameObject.action_ismagil(act, self.whichPlayer, self.displayMode)
         
         #  next state after one action
         s = self.gameObject.GetGameScreen()
@@ -935,3 +936,15 @@ class Simulator():
 
     def SaveScreen(self, imageFileName="outIsmail.png"):
         self.gameObject.SaveGameScreen(imageFileName)
+    
+    
+    def SetDisplayMode(self, dispMode):
+        global gameDisplay
+        
+        if (dispMode == 0):
+            gameDisplay = pygame.Surface((display_width, display_height))
+            self.displayMode = dispMode
+        elif (dispMode == 1):
+            gameDisplay = pygame.display.set_mode((display_width, display_height))
+            self.displayMode = dispMode
+            

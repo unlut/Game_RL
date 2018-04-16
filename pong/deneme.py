@@ -4,6 +4,7 @@ import pong
 
 #  stuff
 import matplotlib.pyplot as plt
+import time
 
 
 
@@ -29,6 +30,10 @@ s0 = simulator.Start(opponent_ai = 102)
 whichPlayer = simulator.whichPlayer
 print("Playing as player {0}".format(whichPlayer))
 
+
+#  0 for hide screen
+#  1 for show screen
+simulator.SetDisplayMode(0)
 
 
 #  save screenshot of current state
@@ -59,5 +64,7 @@ while devam:
     #simulator.Save_Screen(imageFileName = str(i)+".png")
     
     i = i + 1
+    
+    #time.sleep()
     
 
