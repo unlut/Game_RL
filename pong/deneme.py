@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 
 #  initialize game simulator
-simulator = pong.Tolga()
+simulator = pong.Simulator()
 
 
 
@@ -22,7 +22,7 @@ INPUT_TYPE_COMPUTER_RANDOM = 101
 INPUT_TYPE_COMPUTER_KURALBAZ = 102
 
 """
-s0 = simulator.Start_Ismagil(opponent_ai = 102)
+s0 = simulator.Start(opponent_ai = 102)
 
 #  whichPlayer is 1 for player 1 (left/red)
 #  2 for player 2 (right/blue)
@@ -32,7 +32,7 @@ print("Playing as player {0}".format(whichPlayer))
 
 
 #  save screenshot of current state
-#simulator.Save_Screen_Ismagil("s0.png")
+#simulator.Save_Screen("s0.png")
 
 
 #  simulate a game
@@ -41,7 +41,7 @@ print("Playing as player {0}".format(whichPlayer))
 devam = True
 i = 1
 while devam:
-    (si, ri, d) = simulator.Action_Ismagil(1)  #  1 UP, 0 stay, -1 down
+    (si, ri, d) = simulator.Action(1)  #  1 UP, 0 stay, -1 down
     #print(si.shape)
     #plt.imshow(si)
     
@@ -56,7 +56,7 @@ while devam:
         
     
     #  for testing only
-    #simulator.Save_Screen_Ismagil(imageFileName = str(i)+".png")
+    #simulator.Save_Screen(imageFileName = str(i)+".png")
     
     i = i + 1
     

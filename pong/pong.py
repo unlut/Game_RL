@@ -866,6 +866,7 @@ class Pong():
 
 
 if __name__ == '__main__':
+    gameDisplay = pygame.display.set_mode((display_width, display_height))
     game = Pong()
     game.game_intro()
     pygame.quit()
@@ -873,9 +874,9 @@ if __name__ == '__main__':
 
 
 
-class Tolga():
+class Simulator():
     def __init__(self):
-        self.turker = None
+        self.gameObject = None
         self.opponentAI = None
         self.whichPlayer = 0
         
@@ -891,18 +892,18 @@ class Tolga():
         
     
 
-    def Start_Ismagil(self, opponent_ai = INPUT_TYPE_COMPUTER_KURALBAZ):
-        self.turker = Pong()
+    def Start(self, opponent_ai = INPUT_TYPE_COMPUTER_KURALBAZ):
+        self.gameObject = Pong()
         self.opponentAI = opponent_ai
-        return self.turker.start_ismagil(opponent_ai)
+        return self.gameObject.start_ismagil(opponent_ai)
     
 
 
-    def Action_Ismagil(self, act):
-        result = self.turker.action_ismagil(act, self.whichPlayer)
+    def Action(self, act):
+        result = self.gameObject.action_ismagil(act, self.whichPlayer)
         
         #  next state after one action
-        s = self.turker.GetGameScreen()
+        s = self.gameObject.GetGameScreen()
         
         
         #  no intermediate reward for ismagil
@@ -927,10 +928,10 @@ class Tolga():
         return (s, r, d)
         
         
-    def Visualize_Ismagil(self):
+    def Visualize(self):
         raise NotImplementedError
         #print("Visualize_Ismagil() --- This function will not be implemented")
         
 
-    def Save_Screen_Ismagil(self, imageFileName="outIsmail.png"):
-        self.turker.SaveGameScreen(imageFileName)
+    def SaveScreen(self, imageFileName="outIsmail.png"):
+        self.gameObject.SaveGameScreen(imageFileName)
