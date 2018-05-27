@@ -1,6 +1,9 @@
 #  import our favorite game
 import pong
 
+#  import our favorite simulator
+import PongSimulator
+
 
 #  stuff
 import matplotlib.pyplot as plt
@@ -11,7 +14,7 @@ import time
 
 
 #  initialize game simulator
-simulator = pong.Simulator()
+simulator = PongSimulator.PongSimulator()
 
 
 
@@ -22,8 +25,12 @@ simulator = pong.Simulator()
 INPUT_TYPE_COMPUTER_RANDOM = 101
 INPUT_TYPE_COMPUTER_KURALBAZ = 102
 
+
+see macros.py for list of available AIs
 """
 s0 = simulator.Start(opponent_ai = 102)
+
+
 
 #  whichPlayer is 1 for player 1 (left/red)
 #  2 for player 2 (right/blue)
@@ -31,18 +38,21 @@ whichPlayer = simulator.whichPlayer
 print("Playing as player {0}".format(whichPlayer))
 
 
+
+
 #  0 for hide screen
 #  1 for show screen
-simulator.SetDisplayMode(0)
+simulator.SetDisplayMode(1)
+
 
 
 #  save screenshot of current state
 #simulator.Save_Screen("s0.png")
 
 
+
 #  simulate a game
 #  better loop while checking value of d
-
 devam = True
 i = 1
 while devam:
@@ -65,6 +75,6 @@ while devam:
     
     i = i + 1
     
-    #time.sleep()
+    #time.sleep(0.01)
     
 
