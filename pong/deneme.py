@@ -42,7 +42,7 @@ print("Playing as player {0}".format(whichPlayer))
 
 #  0 for hide screen
 #  1 for show screen
-simulator.SetDisplayMode(1)
+simulator.SetDisplayMode(0)
 
 
 
