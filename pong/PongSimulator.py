@@ -25,9 +25,26 @@ class PongSimulator():
         
     
 
-    def Start(self, opponent_ai = INPUT_TYPE_COMPUTER_KURALBAZ):
+    def Start(self, opponent_ai = INPUT_TYPE_COMPUTER_KURALBAZ, playerSelection=0):
         self.gameObject = Pong()
         self.opponentAI = opponent_ai
+        
+        if (playerSelection == 0):
+            #  toss
+            toss = random.randint(0, 1)
+            if (toss == 0):
+                #  Player 1
+                self.whichPlayer = 1
+            else:
+                #  Player 2
+                self.whichPlayer = 2
+        elif (playerSelection == 1):
+            self.whichPlayer = 1
+        elif (playerSelection == 2):
+            self.whichPlayer = 2
+        else:
+            print("Invalid playerSelection parameter!")
+            
         return self.gameObject.start_ismagil(opponent_ai)
     
     
