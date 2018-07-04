@@ -30,6 +30,9 @@ see macros.py for list of available AIs
 """
 s0 = simulator.Start(opponent_ai = 102)
 
+#  if also want choose agent's player
+#  s0 = simulator.Start(opponent_ai = 102, playerSelection=1)
+
 
 
 #  whichPlayer is 1 for player 1 (left/red)
