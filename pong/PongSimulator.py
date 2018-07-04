@@ -30,6 +30,20 @@ class PongSimulator():
         self.opponentAI = opponent_ai
         return self.gameObject.start_ismagil(opponent_ai)
     
+    
+    def Restart(self):
+        oldOpponentAI = self.opponentAI
+        oldDisplayMode = self.displayMode
+        
+        #  call init
+        self.__init__()
+        
+        #  simulate start
+        self.gameObject = Pong()
+        self.opponentAI = oldOpponentAI
+        self.displayMode = oldDisplayMode
+        return self.gameObject.start_ismagil(oldOpponentAI)
+    
 
 
     def Action(self, act):
