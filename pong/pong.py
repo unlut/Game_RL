@@ -321,6 +321,12 @@ class Pong():
         self.Computer_1_AI = opponent_ai
         self.Computer_2_AI = opponent_ai
         
+        #  move players to starting positions
+        p1_obj.x = 0+PLAYER_HORIZONTAL_OFFSET
+        p1_obj.y = display_height/2
+        p2_obj.x = display_width - PLAYER_HORIZONTAL_OFFSET
+        p2_obj.y = display_height/2
+        
         return self.GetGameScreen()
     
     def action_ismagil(self, action, whichPlayer, dispMode):
