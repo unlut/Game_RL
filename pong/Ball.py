@@ -123,7 +123,7 @@ class Ball:
         
         #  check pt
         if (pt):
-            print("Hit??")
+            #print("Hit??")
             direction = pt[2]
             ptx = pt[0]
             pty = pt[1]
@@ -133,7 +133,7 @@ class Ball:
                 if (direction == "L" or direction == "R"):
                     newx = ptx
                     newdx = -newdx
-                    print("Horizontal hit?")
+                    #print("Horizontal hit?")
                     if targetPlayer == p1_obj:
                         ball_event = BALL_EVENT_P1_HORIZONTAL
                     else:
@@ -142,7 +142,7 @@ class Ball:
                 elif (direction == "T" or direction == "B"):
                     newy  = pty
                     newdy = -newdy
-                    print("Vertical Hit?")
+                    #print("Vertical Hit?")
                     if targetPlayer == p1_obj:
                         ball_event = BALL_EVENT_P1_VERTICAL
                     else:
