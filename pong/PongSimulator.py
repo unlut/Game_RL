@@ -28,8 +28,9 @@ class PongSimulator():
     def Start(self, opponent_ai = INPUT_TYPE_COMPUTER_KURALBAZ, playerSelection=0):
         self.gameObject = Pong()
         self.opponentAI = opponent_ai
+        self.playerSelection = playerSelection
         
-        if (playerSelection == 0):
+        if (self.playerSelection == 0):
             #  toss
             toss = random.randint(0, 1)
             if (toss == 0):
@@ -38,9 +39,9 @@ class PongSimulator():
             else:
                 #  Player 2
                 self.whichPlayer = 2
-        elif (playerSelection == 1):
+        elif (self.playerSelection == 1):
             self.whichPlayer = 1
-        elif (playerSelection == 2):
+        elif (self.playerSelection == 2):
             self.whichPlayer = 2
         else:
             print("Invalid playerSelection parameter!")
@@ -49,16 +50,39 @@ class PongSimulator():
     
     
     def Restart(self):
+        #  save old choices
         oldOpponentAI = self.opponentAI
         oldDisplayMode = self.displayMode
+        oldPlayerSelection = self.playerSelection
         
         #  call init
         self.__init__()
+        
+        
+        
+        
+        
         
         #  simulate start
         self.gameObject = Pong()
         self.opponentAI = oldOpponentAI
         self.displayMode = oldDisplayMode
+        if (self.playerSelection == 0):
+            #  toss
+            toss = random.randint(0, 1)
+            if (toss == 0):
+                #  Player 1
+                self.whichPlayer = 1
+            else:
+                #  Player 2
+                self.whichPlayer = 2
+        elif (self.playerSelection == 1):
+            self.whichPlayer = 1
+        elif (self.playerSelection == 2):
+            self.whichPlayer = 2
+        else:
+            print("Invalid playerSelection parameter!")
+        
         return self.gameObject.start_ismagil(oldOpponentAI)
     
 
