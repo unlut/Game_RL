@@ -218,21 +218,21 @@ class Pong():
         if ball_event == BALL_EVENT_NOTHING:
             #  if no collision occured, check for goal
             if (self.ball.x > display_width):
-                print("P1_SCORE")
+                #print("P1_SCORE")
                 #pygame.time.wait(5000)
                 return RESULT_PLAYER_1_WIN
             elif (self.ball.x < 0):
-                print("P2_SCORE")
+                #print("P2_SCORE")
                 #pygame.time.wait(5000)
                 return RESULT_PLAYER_2_WIN
         else:
             if ball_event == BALL_EVENT_P1_HORIZONTAL or ball_event == BALL_EVENT_P1_VERTICAL:
                 #  ball hit player 1
-                print("Ball hit player 1")
+                #print("Ball hit player 1")
                 return RESULT_PLAYER_1_HIT
             elif ball_event == BALL_EVENT_P2_HORIZONTAL or ball_event == BALL_EVENT_P2_VERTICAL:
                 #  ball hit player 2
-                print("Ball hit player 2")
+                #print("Ball hit player 2")
                 return RESULT_PLAYER_2_HIT
         
         #  continue game
@@ -329,7 +329,8 @@ class Pong():
         if (action == -1):
             ismagilInput.down = 1
         elif (action == 0):
-            print("asd")
+            pass
+            #print("asd")
         elif (action == 1):
             ismagilInput.up = 1
         else:

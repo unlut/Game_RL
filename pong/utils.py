@@ -10,7 +10,7 @@ def Intercept(x1, y1, x2, y2, x3, y3, x4, y4, d):
             if ((ub >= 0) and (ub <= 1)):
                 x = x1 + (ua * (x2-x1))
                 y = y1 + (ua * (y2-y1))
-                print("interception detected")
+                #print("interception detected")
                 return (x, y, d)
     return None
 
